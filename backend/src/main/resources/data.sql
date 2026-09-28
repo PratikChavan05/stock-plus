@@ -7,4 +7,5 @@ INSERT INTO products (id, sku, name, category, current_price, stock_level, reord
   ('PRD-005', 'SKU-HOME-001', 'Ceramic Pour-Over Set',      'HOME',        49.99,  22,  10, 4,  'ACTIVE',               21.00, 0.20, 'SUP-HOME'),
   ('PRD-006', 'SKU-HOME-002', 'LED Desk Lamp — Dimmable',   'HOME',        59.99,  0,   15, 0,  'OUT_OF_STOCK',         24.00, 0.18, 'SUP-HOME'),
   ('PRD-007', 'SKU-ELEC-003', 'Portable Charger 20K',       'ELECTRONICS', 44.99,  18,  25, 8,  'ACTIVE',               19.50, 0.20, 'SUP-POWER'),
-  ('PRD-008', 'SKU-APP-003',  'Hoodie — Heather Grey',      'APPAREL',     54.99,  11,  12, 15, 'ACTIVE',               22.00, 0.22, 'SUP-APPAREL');
+  ('PRD-008', 'SKU-APP-003',  'Hoodie — Heather Grey',      'APPAREL',     54.99,  11,  12, 15, 'ACTIVE',               22.00, 0.22, 'SUP-APPAREL')
+ON CONFLICT (id) DO NOTHING;

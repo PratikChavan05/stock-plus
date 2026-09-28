@@ -31,14 +31,14 @@ public class AgenticRecommendationLoop {
     private final CommerceContextFactory contextFactory;
 
     @Async
-    @Transactional
+    @Transactional(propagation = org.springframework.transaction.annotation.Propagation.REQUIRES_NEW)
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT, fallbackExecution = true)
     public void handleInventoryLow(InventoryLowEvent event) {
         processSignal(event.getProductId(), TriggerReason.INVENTORY_LOW);
     }
 
     @Async
-    @Transactional
+    @Transactional(propagation = org.springframework.transaction.annotation.Propagation.REQUIRES_NEW)
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT, fallbackExecution = true)
     public void handleDemandSpike(DemandSpikeEvent event) {
         processSignal(event.getProductId(), TriggerReason.DEMAND_SPIKE);
